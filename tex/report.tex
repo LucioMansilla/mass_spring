@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{graphicx} % Para incluir imágenes
+\usepackage{amsmath}  % Para matemáticas
+\usepackage{pgfplots}
+\usepackage{float}
+\pgfplotsset{compat=1.16}
+\title{Proyecto de Simulación: Masa y Resorte}
+\author{Lucio Mansilla , Brenda Dichiara}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+En este proyecto, exploramos la dinámica de un sistema masa-resorte simple, con el objetivo de comprender cómo las condiciones iniciales y los parámetros del sistema afectan a su comportamiento. Utilizamos el método de Euler para resolver numéricamente las ecuaciones diferenciales que describen el sistema. A través de nuestra simulación, pudimos observar cómo la masa, la constante del resorte, la resistencia al rozamiento y una fuerza externa aplicada afectan a la posición y la velocidad del sistema en función del tiempo.
+
+\section{Modelo y Método de Solución}
+El modelo físico que utilizamos es el de un resorte con una masa $m$ sujeta a él, una constante de resistencia del resorte $k$, una resistencia al rozamiento $b$, y una fuerza externa $F$. 
+
+\begin{tikzpicture}[scale=1.5]
+    % Masa
+    \draw[fill=white,opacity=0.7] (2,-0.5) rectangle ++(1,1) node[midway] {$m$};
+    % Resorte
+    \draw[decoration={coil},decorate] (0,0) -- (2,0) node[midway, above=5mm] {$k$};
+    % Pared
+    \draw[very thick] (0,-1) -- (0,1);
+    % Fuerza
+    \draw[->,thick, red] (3,0) -- ++(1,0) node[midway,above] {$F(t)$};
+    % Rozamiento
+    \draw[->,thick, blue] (2,-0.5) -- ++(-0.5,0) node[midway,below] {$b$};
+    % Coordenadas
+    \draw[->] (0,-1) -- ++(5,0) node[below] {$x(t)$}; % posicion
+    \draw[->] (0,-1) -- ++(0,2) node[left] {$y(t)$}; % velocidad
+\end{tikzpicture}
+
+Las ecuaciones de movimiento son las siguientes:
+\begin{align*}
+\frac{dx}{dt} & = v, \\
+\frac{dv}{dt} & = -\frac{k}{m}x - \frac{b}{m}v + \frac{F}{m}.
+\end{align*}
+
+
+\section{Validación del Modelo}
+Para validar el modelo de simulación de masa-resorte, necesitamos comparar los resultados de la simulación con los resultados experimentales o con soluciones analíticas conocidas del sistema.
+
+\subsection{Comparación con Soluciones Analíticas}
+% La ecuación diferencial que describe un sistema masa-resorte sin amortiguamiento es una ecuación bien conocida cuya solución es una función sinusoidal o cosinusoidal. Si incluimos el amortiguamiento, la solución se convierte en una exponencial amortiguada multiplicada por una sinusoidal o cosinusoidal. Podemos comparar los resultados de nuestra simulación con estas soluciones analíticas para verificar que nuestro modelo esté funcionando correctamente. 
+
+
+\section{Experimentos}
+Realizamos una serie de experimentos variando la masa $m$, la constante del resorte $k$, la resistencia al rozamiento $b$, la fuerza externa $F$, y las condiciones iniciales de posición $x_0$ , la velocidad $v_0$ y el "paso" de tiempo $\Delta t$. A continuación, presentamos los resultados más interesantes de estos experimentos.
+
+\subsection{Experimento 1: Variación de la masa}
+En este experimento, nos centramos en el impacto de la variación de la masa $m$ en la dinámica del sistema de masa-resorte. Para asegurar un control riguroso sobre las variables de estudio, mantuvimos constantes los siguientes parámetros:
+
+\begin{itemize}
+\item Constante del resorte, $k = 1.0$
+\item Resistencia al rozamiento, $b = 1.0$
+\item Fuerza externa, $F = 1.0$
+\item Posición inicial, $x_0 = 0.0$
+\item Velocidad inicial, $v_0 = 0.0$
+\end{itemize}
+
+Luego, implementamos simulaciones con distintos valores de masa, en particular $m = 1.0$ y $m = 5.0$. El paso de tiempo seleccionado para la simulación fue $\Delta t= 0.001$.
+
+Las observaciones derivadas de 100 iteraciones mostraron un resultado intrigante: a medida que la masa aumenta, el sistema tarda más tiempo en alcanzar un estado de equilibrio, como se puede ver en la Figura X. Este fenómeno se debe a la constante fuerza externa $F$ en el sistema, que necesita más tiempo para generar suficiente impulso y mover la masa aumentada hacia el estado de equilibrio.
+
+\subsection{Experimento 2: Ausencia de fricción}
+En este segundo experimento, nos propusimos examinar el comportamiento del sistema de masa-resorte en ausencia de fricción. Para ello, se estableció la resistencia al rozamiento $b$ en cero, manteniendo constantes los demás parámetros:
+
+\begin{itemize}
+\item Masa, $m = 1.0$
+\item Constante del resorte, $k = 1.0$
+\item Fuerza externa, $F = 1.0$
+\item Posición inicial, $x_0 = 0.0$
+\item Velocidad inicial, $v_0 = 0.0$
+\end{itemize}
+
+El paso de tiempo para la simulación fue nuevamente de $\Delta t= 0.001$.
+
+La ausencia de fricción resultó en un sistema que nunca alcanza un estado de equilibrio, como se muestra en la Figura Y. Sin fricción para disipar la energía inyectada constantemente al sistema por la fuerza externa $F$, el sistema continúa oscilando sin cesar. Este hallazgo resalta el papel crucial de la fricción como un factor estabilizador en sistemas dinámicos.
+
+Además, al aumentar la masa a $m = 2.0$, se observó una disminución en la frecuencia de las oscilaciones, tal como se muestra en la Figura Z. Esto se debe a que una mayor masa requiere más fuerza para cambiar su estado de movimiento, lo que resulta en oscilaciones de menor frecuencia.
+
+Estos experimentos ilustran la rica y compleja dinámica que puede surgir de un simple sistema de masa-resorte, y cómo el método de Euler puede ser una herramienta efectiva para explorar y comprender estos comportamientos.    
+
+
+\subsection{Experimento 2: Variación de la constante del resorte}
+Para este experimento, variamos la constante del resorte $k$, manteniendo constantes los demás parámetros. A medida que la constante del resorte aumenta, esperamos ver un aumento en la frecuencia de oscilación, ya que el resorte ejerce una mayor fuerza restauradora, lo que hace que el sistema vuelva más rápidamente a su posición de equilibrio.
+
+
+
+\section{Conclusiones}
+Conclusiones basadas en los resultados de los experimentos...
+
+
+\end{document}
