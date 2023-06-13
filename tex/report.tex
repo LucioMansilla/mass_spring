@@ -64,7 +64,7 @@ En este experimento, nos centramos en el impacto de la variación de la masa $m$
 
 Luego, implementamos simulaciones con distintos valores de masa, en particular $m = 1.0$ y $m = 5.0$. El paso de tiempo seleccionado para la simulación fue $\Delta t= 0.001$.
 
-Las observaciones derivadas de 100 iteraciones mostraron un resultado intrigante: a medida que la masa aumenta, el sistema tarda más tiempo en alcanzar un estado de equilibrio, como se puede ver en la Figura X. Este fenómeno se debe a la constante fuerza externa $F$ en el sistema, que necesita más tiempo para generar suficiente impulso y mover la masa aumentada hacia el estado de equilibrio.
+Las observaciones observadas con 150 iteraciones mostraron que a medida que la masa aumenta, el sistema tarda más tiempo en alcanzar un estado de equilibrio, como se puede ver en la Figura X. Este fenómeno se debe a la constante fuerza externa $F = 1$ en el sistema, que necesita más tiempo para generar suficiente impulso y mover la masa aumentada hacia el estado de equilibrio.
 
 \subsection{Experimento 2: Ausencia de fricción}
 En este segundo experimento, nos propusimos examinar el comportamiento del sistema de masa-resorte en ausencia de fricción. Para ello, se estableció la resistencia al rozamiento $b$ en cero, manteniendo constantes los demás parámetros:
@@ -79,17 +79,17 @@ En este segundo experimento, nos propusimos examinar el comportamiento del siste
 
 El paso de tiempo para la simulación fue nuevamente de $\Delta t= 0.001$.
 
-La ausencia de fricción resultó en un sistema que nunca alcanza un estado de equilibrio, como se muestra en la Figura Y. Sin fricción para disipar la energía inyectada constantemente al sistema por la fuerza externa $F$, el sistema continúa oscilando sin cesar. Este hallazgo resalta el papel crucial de la fricción como un factor estabilizador en sistemas dinámicos.
+La ausencia de fricción resultó en un sistema que nunca alcanza un estado de equilibrio, como se muestra en la Figura Y. Sin fricción para disipar la energía inyectada constantemente al sistema por la fuerza externa $F$, el sistema continúa oscilando sin cesar. Esto resalta el papel crucial de la fricción como un factor estabilizador en sistemas dinámicos con fuerza externa constante.
 
 Además, al aumentar la masa a $m = 2.0$, se observó una disminución en la frecuencia de las oscilaciones, tal como se muestra en la Figura Z. Esto se debe a que una mayor masa requiere más fuerza para cambiar su estado de movimiento, lo que resulta en oscilaciones de menor frecuencia.
 
-Estos experimentos ilustran la rica y compleja dinámica que puede surgir de un simple sistema de masa-resorte, y cómo el método de Euler puede ser una herramienta efectiva para explorar y comprender estos comportamientos.    
 
 
-\subsection{Experimento 2: Variación de la constante del resorte}
-Para este experimento, variamos la constante del resorte $k$, manteniendo constantes los demás parámetros. A medida que la constante del resorte aumenta, esperamos ver un aumento en la frecuencia de oscilación, ya que el resorte ejerce una mayor fuerza restauradora, lo que hace que el sistema vuelva más rápidamente a su posición de equilibrio.
+\subsection{Experimento 3: Ausencia de Fricción con Masa Variable}
 
 
+
+\subsection{Experimento 4: Desplazamiento del estado de equilibrio}
 
 \section{Conclusiones}
 Conclusiones basadas en los resultados de los experimentos...
