@@ -68,7 +68,9 @@ class AnimationPlotter:
         axs[1].legend()
 
         # Set up the animation
-        ani = MyFuncAnimation(fig, self.animate, frames=1000, interval=20, blit=True)
+        #ani = MyFuncAnimation(fig, self.animate, frames=1000, interval=20, blit=True)
+        ani = MyFuncAnimation(fig, self.animate, frames=300, interval=10, blit=True)
+        ani.save("animation.mp4", writer='ffmpeg')
 
         plt.tight_layout()
         plt.show()

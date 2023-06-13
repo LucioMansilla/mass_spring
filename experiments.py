@@ -24,7 +24,6 @@ def friction_experiments():
 
     p = AnimationPlotter([e1, e2])
     p.plot()
-    p.animate(150)
 
 def force_experiments():
     mass_spring_system1 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=1.0)
