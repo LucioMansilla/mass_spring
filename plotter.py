@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import numpy as np
 from matplotlib.animation import FuncAnimation
 
 
@@ -12,7 +13,7 @@ class Plotter:
         fig, axs = plt.subplots(2)
 
         for model in self.models:
-            x, v, t, oscillations = model.solve(iterations=1000)
+            x, v, t, oscillations = model.solve(iterations=50)
 
             # Plot of position as a function of time
             axs[0].plot(t, x, label=f'm={model.model.mass}')
@@ -39,15 +40,22 @@ class Plotter:
 class AnimationPlotter:
     def __init__(self, euler_mass_spring_models):
         self.models = euler_mass_spring_models
+        self.t = np.linspace(0, 1000, 400)  # Define the time range and resolution
 
     def animate(self, i):
         artists = []
         for line, model in zip(self.lines, self.models):
-            x, v, t, oscillations = model.solve(iterations=i)
+            x, v, t, oscillations = model.solve(iterations=self.t[i])  # Use t[i] instead of i*10
             line[0].set_data(t, x)  # Update the position plot
             line[1].set_data(t, v)  # Update the velocity plot
+            line[0].axes.set_xlim(t[0], t[-1])  # Update the x-axis limits for the position plot
+            line[1].axes.set_xlim(t[0], t[-1])  # Update the x-axis limits for the velocity plot
+            line[0].axes.set_ylim(-0.5, 2.3)  # Set y-axis limits for the position plot
+            line[1].axes.set_ylim(-1.3, 1.3)  # Set y-axis limits for the velocity plot
             artists.extend(line)
         return artists
+
+
 
     def plot(self):
         fig, axs = plt.subplots(2)
@@ -68,10 +76,9 @@ class AnimationPlotter:
         axs[1].legend()
 
         # Set up the animation
-        #ani = MyFuncAnimation(fig, self.animate, frames=1000, interval=20, blit=True)
-        ani = MyFuncAnimation(fig, self.animate, frames=300, interval=10, blit=True)
-        ani.save("animation.mp4", writer='ffmpeg')
-
+        ani = MyFuncAnimation(fig, self.animate, frames=len(self.t), interval=20, blit=True)  # Use len(t) frames
+        ani.save("animation.mp4", writer='Pillow')
+        plt.subplots_adjust(hspace = 2)
         plt.tight_layout()
         plt.show()
 

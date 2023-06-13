@@ -13,12 +13,15 @@
 \maketitle
 
 \section{Introducción}
-En este proyecto, exploramos la dinámica de un sistema masa-resorte simple, con el objetivo de comprender cómo las condiciones iniciales y los parámetros del sistema afectan a su comportamiento. Utilizamos el método de Euler para resolver numéricamente las ecuaciones diferenciales que describen el sistema. A través de nuestra simulación, pudimos observar cómo la masa, la constante del resorte, la resistencia al rozamiento y una fuerza externa aplicada afectan a la posición y la velocidad del sistema en función del tiempo.
+En este proyecto, exploramos la dinámica de un sistema masa-resorte, con el objetivo de comprender cómo las condiciones iniciales y los parámetros del sistema afectan su comportamiento. Utilizamos el método de Euler para resolver numéricamente las ecuaciones diferenciales que describen el sistema. En este trabajo se observo cómo la masa, la constante del resorte, la resistencia al rozamiento y una fuerza externa aplicada al modelo, afectan a la posición, velocidad oscilaciones, discipación de energía y puntos de equlibrio a lo largo del tiempo.
 
 \section{Modelo y Método de Solución}
-El modelo físico que utilizamos es el de un resorte con una masa $m$ sujeta a él, una constante de resistencia del resorte $k$, una resistencia al rozamiento $b$, y una fuerza externa $F$. 
+El modelo físico que utilizamos es el de un resorte con una masa $m$ sujeta a él, una constante de resistencia del resorte $k$, una resistencia al rozamiento $b$, y una fuerza externa $F$.
 
+\vspace{0.1cm}
+\begin{center}
 \begin{tikzpicture}[scale=1.5]
+
     % Masa
     \draw[fill=white,opacity=0.7] (2,-0.5) rectangle ++(1,1) node[midway] {$m$};
     % Resorte
@@ -33,13 +36,12 @@ El modelo físico que utilizamos es el de un resorte con una masa $m$ sujeta a �
     \draw[->] (0,-1) -- ++(5,0) node[below] {$x(t)$}; % posicion
     \draw[->] (0,-1) -- ++(0,2) node[left] {$y(t)$}; % velocidad
 \end{tikzpicture}
-
-Las ecuaciones de movimiento son las siguientes:
+\end{center}
+Las ecuaciones diferenciales que modelan este sistema continuo son:
 \begin{align*}
-\frac{dx}{dt} & = v, \\
-\frac{dv}{dt} & = -\frac{k}{m}x - \frac{b}{m}v + \frac{F}{m}.
+    \frac{dx}{dt} & = v \\\\ 
+    \frac{dv}{dt} & = -\frac{k}{m}x - \frac{b}{m}v + \frac{F}{m}.
 \end{align*}
-
 
 \section{Validación del Modelo}
 Para validar el modelo de simulación de masa-resorte, necesitamos comparar los resultados de la simulación con los resultados experimentales o con soluciones analíticas conocidas del sistema.
@@ -49,10 +51,10 @@ Para validar el modelo de simulación de masa-resorte, necesitamos comparar los 
 
 
 \section{Experimentos}
-Realizamos una serie de experimentos variando la masa $m$, la constante del resorte $k$, la resistencia al rozamiento $b$, la fuerza externa $F$, y las condiciones iniciales de posición $x_0$ , la velocidad $v_0$ y el "paso" de tiempo $\Delta t$. A continuación, presentamos los resultados más interesantes de estos experimentos.
+Realizamos una serie de experimentos variando la masa $m$, la constante del resorte $k$, la resistencia al rozamiento $b$, la fuerza externa $F$, y las condiciones iniciales de posición  , velocidad $x_0$ ,$v_0$ y el "paso" de tiempo $\Delta t$. A continuación, presentamos los resultados más interesantes de estos experimentos.
 
 \subsection{Experimento 1: Variación de la masa}
-En este experimento, nos centramos en el impacto de la variación de la masa $m$ en la dinámica del sistema de masa-resorte. Para asegurar un control riguroso sobre las variables de estudio, mantuvimos constantes los siguientes parámetros:
+En este experimento, nos centramos en el impacto en  la variación de la masa $m$ en la dinámica del sistema. Para asegurar un control riguroso sobre las variables de estudio, mantuvimos constantes el resto de los parámetros:
 
 \begin{itemize}
 \item Constante del resorte, $k = 1.0$
@@ -62,9 +64,30 @@ En este experimento, nos centramos en el impacto de la variación de la masa $m$
 \item Velocidad inicial, $v_0 = 0.0$
 \end{itemize}
 
-Luego, implementamos simulaciones con distintos valores de masa, en particular $m = 1.0$ y $m = 5.0$. El paso de tiempo seleccionado para la simulación fue $\Delta t= 0.001$.
+Luego, implementamos simulaciones con distintos valores de masa, en particular $m = 1.0$ y $m = 3.0$. El paso de tiempo seleccionado para la simulación fue $\Delta t= 0.001$.
 
-Las observaciones observadas con 150 iteraciones mostraron que a medida que la masa aumenta, el sistema tarda más tiempo en alcanzar un estado de equilibrio, como se puede ver en la Figura X. Este fenómeno se debe a la constante fuerza externa $F = 1$ en el sistema, que necesita más tiempo para generar suficiente impulso y mover la masa aumentada hacia el estado de equilibrio.
+Las simulaciones realizadas con 150 como límite de tiempo $t$ mostraron que a medida que la masa aumenta, el sistema tarda un mayor tiempo en alcanzar un estado de equilibrio, como se puede ver en la figura 1.
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=0.8\textwidth]{images/mass.png}
+\caption{Posición - Velocidad en función del tiempo para distintos valores de masa, $t = 100$.}
+\end{figure}
+
+Este fenómeno se debe a que la fuerza aplicada, es constante i.e $F = 1$, por lo se necesita más tiempo para generar suficiente impulso y mover la masa aumentada hacia el estado de equilibrio.
+
+Mismo experimento pero aumentando el límite de tiempo 
+$t$ también mostro que el modelo con mayor masa tiene más oscilaciones antes de alcanzar el estado de equilibrio, como se puede ver en la figura 2.
+
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=0.8\textwidth]{images/mass.png}
+    \caption{Posición - Velocidad en función del tiempo para distintos valores de masa, $t = 150$.}
+\end{figure}
+    
+
+Se presentan los resultados observados de la figura 1 y 2 en la tabla 1.
+
 
 \subsection{Experimento 2: Ausencia de fricción}
 En este segundo experimento, nos propusimos examinar el comportamiento del sistema de masa-resorte en ausencia de fricción. Para ello, se estableció la resistencia al rozamiento $b$ en cero, manteniendo constantes los demás parámetros:

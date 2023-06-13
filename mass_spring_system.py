@@ -1,5 +1,14 @@
 class MassSpringSystem:
     def __init__(self, mass, spring_resistance, friction, force):
+        """
+        Inicializa una instancia del sistema masa-resorte.
+
+        Args:
+            mass (float): Masa del objeto conectado al resorte.
+            spring_resistance (float): Constante de resistencia del resorte.
+            friction (float): Coeficiente de fricción del sistema.
+            force (float): Fuerza aplicada al objeto.
+        """
         self.mass = mass
         self.spring_resistance = spring_resistance
         self.friction = friction

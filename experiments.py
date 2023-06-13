@@ -5,7 +5,7 @@ from plotter import Plotter, AnimationPlotter
 def mass_experiments():
     # Crear los sistemas de masa y resorte
     mass_spring_system1 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=1.0)
-    mass_spring_system2 = MassSpringSystem(mass=5.0, spring_resistance=1.0, friction=1.0, force=1.0)
+    mass_spring_system2 = MassSpringSystem(mass=4.0, spring_resistance=1.0, friction=1.0, force=1.0)
 
     # Crear los solvers Euler para los sistemas de masa y resorte
     e1 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system1)
@@ -17,7 +17,7 @@ def mass_experiments():
 
 def friction_experiments():
     mass_spring_system1 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=0.0, force=1.0)
-    mass_spring_system2 = MassSpringSystem(mass=2.0, spring_resistance=1.0, friction=0.0, force=1.0)
+    mass_spring_system2 = MassSpringSystem(mass=5.0, spring_resistance=1.0, friction=0.0, force=1.0)
 
     e1 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system1)
     e2 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system2)
@@ -36,6 +36,6 @@ def force_experiments():
     p.plot()
 
 if __name__ == '__main__':
-    #mass_experiments()
-    friction_experiments()
+    mass_experiments()
+    #friction_experiments()
    # force_experiments()
