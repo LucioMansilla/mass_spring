@@ -183,16 +183,16 @@ A partir de los datos presentados en las tablas, se puede observar que el sistem
 
 \subsection{Experimento 2: Ausencia de Fricción}
 
-En este experimento, exploramos la dinámica del sistema en ausencia de fricción. Específicamente, comparamos dos modelos con las siguientes características:
+En este experimento, exploramos la dinámica del sistema en ausencia de fricción. Para ello, comparamos dos modelos que difieren solo en el coeficiente de fricción $b$:
 
 \begin{itemize}
 \item Modelo 1: $m = 1.0$, $k = 1.0$, $b = 1.0$, $F = 1.0$
 \item Modelo 2: $m = 1.0$, $k = 1.0$, $b = 0.0$, $F = 1.0$
 \end{itemize}
 
-Ejecutamos simulaciones para ambos modelos con un tiempo de simulación de $t = 300$ y un paso de tiempo $\Delta t = 0.001$. 
+Ambos modelos fueron simulados por un tiempo de $t = 300$ con un paso de tiempo $\Delta t = 0.001$.
 
-Los resultados para el modelo 1, con fricción, se resumen en la tabla 4.
+El modelo 1, que incluye la presencia de fricción, presenta los resultados resumidos en la tabla 4.
 
 \begin{table}[H]
     \caption{Resultados para el Modelo 1 con fricción}
@@ -207,7 +207,7 @@ Los resultados para el modelo 1, con fricción, se resumen en la tabla 4.
     \end{tabular*}
 \end{table}
 
-Los resultados para el modelo 2, sin fricción, se resumen en la tabla 5.
+El modelo 2, en ausencia de fricción, muestra los resultados resumidos en la tabla 5.
 
 \begin{table}[H]
     \caption{Resultados para el Modelo 2 sin fricción}
@@ -222,11 +222,25 @@ Los resultados para el modelo 2, sin fricción, se resumen en la tabla 5.
     \end{tabular*}
 \end{table}
 
-Los resultados muestran que en ausencia de fricción, el sistema realiza más oscilaciones (95 en lugar de 16), alcanza velocidades más altas (máximo de 1.000 en lugar de 0.546), y alcanza posiciones más alejadas del equilibrio (máximo de 2.000 en lugar de 1.163).
+De manera interesante, los resultados muestran que en ausencia de fricción, el sistema realiza más oscilaciones, alcanza velocidades más altas y posiciones más alejadas del equilibrio. 
 
-Repetimos las simulaciones para un tiempo de simulación más corto, $t = 100$, y observamos resultados consistentes con el tiempo de simulación más largo.
+Además, es importante destacar que en el modelo sin fricción y con una fuerza externa constante, el sistema no converge a un estado de equilibrio, a diferencia de lo que se observa en sistemas con fricción. Este fenómeno se puede explicar en términos de la constante entrada de energía al sistema a través de la fuerza externa, que en ausencia de fricción no puede ser disipada.
 
-En general, estos resultados destacan el papel crítico de la fricción en la amortiguación de las oscilaciones, la limitación de las velocidades máximas y la restricción de las posiciones máximas que el sistema puede alcanzar.
+Estas observaciones se vuelven más claras al analizar las gráficas de la posición y velocidad en función del tiempo para los dos modelos, que se muestran en la Figura 2. 
+
+\captionsetup[figure]{
+  font=small,
+  labelfont=bf,
+  margin={1cm,0cm}
+}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../assets/figure_2_friction.jpeg}
+\caption{Posición y velocidad en función del tiempo para los modelos con y sin fricción.}
+\end{figure}
+
+Estos resultados resaltan el papel crucial de la fricción como mecanismo de disipación de energía que permite la convergencia al estado de equilibrio, limita las velocidades máximas y restringe las posiciones máximas que el sistema puede alcanzar.
 
 \subsection{Experimento 3: Desplazamiento del estado de equilibrio}
 
@@ -280,7 +294,14 @@ El efecto de la variación de la fuerza se puede visualizar en la figura 3, que 
 Estos resultados indican que aumentar la fuerza aplicada al sistema puede ser una forma efectiva de aumentar tanto la velocidad como la distancia que el sistema puede alcanzar sin alterar significativamente la frecuencia de oscilación.
 
 \section{Conclusiones}
-Conclusiones basadas en los resultados de los experimentos...
+En este estudio, investigamos la dinámica de un sistema oscilatorio bajo la influencia de una serie de parámetros, incluyendo la masa del objeto, la resistencia al rozamiento, la fuerza aplicada, y las condiciones iniciales de posición y velocidad. Los hallazgos principales son los siguientes:
 
+\begin{itemize}
+\item Aumentar la masa del objeto lleva a un mayor tiempo para alcanzar el estado de equilibrio y a una mayor amplitud de oscilación, manteniendo los demás parámetros constantes. Este resultado se deriva de la mayor inercia del objeto, lo que requiere una mayor cantidad de impulso para moverlo.
+\item La fricción desempeña un papel crucial en la disipación de la energía del sistema, permitiendo su convergencia al estado de equilibrio. En ausencia de fricción, observamos que el sistema realizaba más oscilaciones, alcanzaba velocidades más altas, y lograba posiciones más alejadas del equilibrio. En particular, un sistema sin fricción y con una fuerza externa constante no converge a un estado de equilibrio, lo que puede atribuirse a la constante entrada de energía al sistema que no puede ser disipada.
+\item Al variar la fuerza externa aplicada, descubrimos que aumentar la fuerza resulta en un incremento en la velocidad máxima y la posición máxima alcanzada por el sistema, sin alterar el número de oscilaciones. Este hallazgo sugiere que es posible aumentar la velocidad y la distancia que el sistema puede alcanzar sin alterar significativamente la frecuencia de oscilación mediante la aplicación de una fuerza mayor.
+\end{itemize}
+
+En conclusión, nuestros experimentos con un modelo oscilatorio simple revelan la influencia significativa que pueden tener diversos parámetros sobre la dinámica del sistema. Estos hallazgos proporcionan un marco para futuras investigaciones en sistemas oscilatorios más complejos y ayudan a dilucidar los mecanismos subyacentes que regulan estos sistemas.
 
 \end{document}

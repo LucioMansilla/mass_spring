@@ -1,15 +1,15 @@
 from mass_spring_system import MassSpringSystem
 class EulerMassSpring:
     """
-    Clase que implementa el método de Euler para resolver el sistema masa-resorte.
+    Class that implements the Euler method for solving the mass-spring system.
 
     Args:
-        x0 (float): Posición inicial.
-        v0 (float): Velocidad inicial.
-        dt (float): Paso de tiempo de la simulación.
-        mass_spring_model (MassSpringSystem): Modelo de sistema masa-resorte.
+        x0 (float): Initial position.
+        v0 (float): Initial velocity.
+        dt (float): Time step of the simulation.
+        mass_spring_model (MassSpringSystem): Mass-spring system model.
     """
-     
+
     def __init__(self, x0:float, v0:float, dt:float, mass_spring_model:MassSpringSystem):
         self.x = [x0]
         self.v = [v0]
@@ -21,20 +21,21 @@ class EulerMassSpring:
 
     def sign(self, num:float) -> int:
         """
-        Calcula el signo de un número dado.
+        Calculates the sign of a given number.
 
         Args:
-            num (float): Número a evaluar.
+            num (float): Number to evaluate.
 
         Returns:
-            int: 1 si el número es positivo, -1 en caso contrario.
+            int: 1 if the number is positive, -1 otherwise.
+
         """
         return 1 if num >= 0 else -1
 
     def step(self):
         """
-        Realiza un paso en la simulación del sistema masa-resorte.
-        Actualiza la posición, velocidad y tiempo en cada paso.
+        Perform a step in the mass-spring system simulation.
+        Update the position, velocity, and time at each step.
         """
         self.x.append(self.x[-1] + self.dt * self.model.derivate_of_x(self.v))
         new_v = self.v[-1] + self.dt * self.model.derivate_of_v(self.v,self.x)
@@ -48,13 +49,13 @@ class EulerMassSpring:
 
     def solve(self, iterations:int):
         """
-        Resuelve el sistema masa-resorte hasta un tiempo dado.
+        Solves the mass-spring system up to a given time.
 
         Args:
-            iterations (int): Tiempo hasta el cual se resuelve el sistema.
+            iterations (int): Time until which the system is solved.
 
         Returns:
-            tuple: Lista de posiciones, velocidades, tiempos y cantidad de oscilaciones.
+            tuple: List of positions, velocities, times, and number of oscillations.
         """
         while self.t[-1] < iterations:
             self.step()

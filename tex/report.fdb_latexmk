@@ -1,10 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1686761246 "/home/luciom/Escritorio/sim/masa-resorte/tex/report.tex" "report.pdf" "report" 1686761247 0
+["pdflatex"] 1686779843 "/home/luciom/Escritorio/sim/masa-resorte/tex/report.tex" "report.pdf" "report" 1686779843 0
   "../assets/figure_1_force.jpeg" 1686760757 58907 b690991637963c6a6c075b388642726f ""
   "../assets/figure_1_mass.jpeg" 1686680927 54862 b9ce7d7d93b226e1049bfca2ebdd4241 ""
+  "../assets/figure_2_friction.jpeg" 1686757754 169498 fb655a0b976977a4257acc09d6f4edb7 ""
   "../assets/figure_3_mass.jpeg" 1686682078 50866 562bd5ed4fd86594ad66b3c97c2b8235 ""
   "/home/luciom/.texlive2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1684638453 7862929 0273a3f92cce2b0d8ae779571cdbbd2b ""
-  "/home/luciom/Escritorio/sim/masa-resorte/tex/report.tex" 1686761246 12132 18c42cd07d91a6a1647ef576eaee2f3c ""
+  "/home/luciom/Escritorio/sim/masa-resorte/tex/report.tex" 1686779842 14657 4a33d8612102b8bacad5278c5f18c874 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -200,8 +201,8 @@
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1655066402 56148 51a9a8571c07b9921892ae11063ae853 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1684972800 40326 aba987258e6d6b6da5dec3a727ea174b ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1686670456 4602579 3b3262ec8ed5367541293e1bf1830c9d ""
-  "report.aux" 1686761247 2968 01aeb992bd6c35f4ddbc1db172137f28 "pdflatex"
-  "report.tex" 1686761246 12132 18c42cd07d91a6a1647ef576eaee2f3c ""
+  "report.aux" 1686779843 3160 60a9c87c4d402d7398fa37b9ae8c406d "pdflatex"
+  "report.tex" 1686779842 14657 4a33d8612102b8bacad5278c5f18c874 ""
   (generated)
   "report.aux"
   "report.log"

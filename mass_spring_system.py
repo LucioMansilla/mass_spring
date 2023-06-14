@@ -1,12 +1,12 @@
 class MassSpringSystem:
     """
-    Modelo de un sistema masa-resorte.
+    Model of a mass-spring system.
 
     Args:
-        mass (float): Masa del objeto.
-        spring_resistance (float): Constante de resistencia del resorte.
-        friction (float): Coeficiente de fricción.
-        force (float): Fuerza aplicada.
+        mass (float): Mass of the object.
+        spring_resistance (float): Spring resistance constant.
+        friction (float): Friction coefficient.
+        force (float): Applied force.
     """
 
     def __init__(self, mass:float, spring_resistance:float, friction:float, force:float):
@@ -15,27 +15,30 @@ class MassSpringSystem:
         self.friction = friction
         self.force = force
 
+    def __str__(self):
+        return f'mass={self.mass}, spring resistance={self.spring_resistance}, friction={self.friction}, force={self.force}'
+
     def derivate_of_v(self, v:list[float], x:list[float]) -> float:
         """
-        Calcula la derivada de la velocidad en función de la posición.
+        Calculates the derivative of velocity with respect to position.
 
         Args:
-            v (list): Lista de velocidades en diferentes instantes de tiempo.
-            x (list): Lista de posiciones en diferentes instantes de tiempo.
+            v (list): List of velocities at different time instants.
+            x (list): List of positions at different time instants.
 
         Returns:
-            float: Derivada de la velocidad.
+            float: Derivative of velocity.
         """
         return (-self.spring_resistance / self.mass) * x[-1] - (self.friction/self.mass)* v[-1] + self.force/self.mass
 
     def derivate_of_x(self, v:list[float]) -> float: 
         """
-        Calcula la derivada de la posición en función de la velocidad.
+        Calculates the derivative of position with respect to velocity.
 
         Args:
-            v (list): Lista de velocidades en diferentes instantes de tiempo.
+            v (list): List of velocities at different time instants.
 
         Returns:
-            float: Derivada de la posición (velocidad).
+            float: Derivative of position (velocity).
         """
         return v[-1]

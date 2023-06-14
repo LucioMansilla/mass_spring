@@ -1,48 +1,40 @@
 from euler_mass_spring import EulerMassSpring
 from mass_spring_system import MassSpringSystem
 from plotter import Plotter, AnimationPlotter
+from constants import *
 
-def mass_experiments():
-    # Crear los sistemas de masa y resorte
-    mass_spring_system1 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=1.0)
-    mass_spring_system2 = MassSpringSystem(mass=4.0, spring_resistance=1.0, friction=1.0, force=1.0)
+def run_experiment(parameters, animation=False, iterations=DEFAULT_ITERATIONS):
+    """
+    Conducts an experiment on mass-spring systems with different parameters.
+    Animates or plots the resulting systems' behaviors using the Euler's method solver.
 
-    # Crear los solvers Euler para los sistemas de masa y resorte
-    e1 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system1)
-    e2 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system2)
+    Args: parameters (list): A list of dictionaries containing the parameters for each system.
+          animation (bool): If True, animates the systems' behaviors. Otherwise, plots the systems' behaviors.
+          iterations (int): The number of iterations to run the simulation.
+    """
+    systems = [MassSpringSystem(**params) for params in parameters]
+    solvers = [EulerMassSpring(x0=0, v0=0, dt=DEFAULT_STEP, mass_spring_model=system) for system in systems]
 
-    # Crear el plotter y pasarle los modelos a graficar
-    p = Plotter([e1, e2])
-    p.plot()
+    if animation:
+        p = AnimationPlotter(solvers)
+        p.plot()
+    else:
+        data = {}
+        for solver in solvers:
+            x, v, t, oscillations = solver.solve(iterations)
+            data.update({solver.model: (x, v, t)})
 
-def friction_experiments():
+        plotter = Plotter(data)
+        plotter.plot()
 
-    mass_spring_system1 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=1.0)
-    mass_spring_system2 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=0.0, force=1.0)
-
-    e1 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system1)
-    e2 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system2)
-
-    #p = Plotter([e1, e2],100)
-    #p.plot()
-
-    p = AnimationPlotter([e1, e2])
-    p.plot()    
-
-def force_experiments():
-    mass_spring_system1 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=1.0)
-    mass_spring_system2 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=2.0)
-    mass_spring_system3 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=3.0)
-
-    e1 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system1)
-    e2 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system2)
-    e3 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system3)
-
-    p = AnimationPlotter([e1, e2, e3])
-    p.plot()
 
 if __name__ == '__main__':
-    #mass_experiments()
-    #friction_experiments()
-    force_experiments()
 
+    # Experiment with different masses
+    run_experiment(MASS_EXPERIMENT_PARAMS, animation=True)
+
+    # Experiment with different friction coefficients
+    run_experiment(FRICTION_EXPERIMENT_PARAMS)
+
+    # Experiment with different external forces
+    run_experiment(FORCE_EXPERIMENT_PARAMS)

@@ -3,32 +3,33 @@ import matplotlib.animation as animation
 import numpy as np
 from matplotlib.animation import FuncAnimation
 
-
 class Plotter:
-    def __init__(self, euler_mass_spring_models, iterations=300):
-        self.models = euler_mass_spring_models
-        self.iterations = iterations
+    """
+    Class for plotting the position and velocity of various models over time.
+
+    Args:
+        data (dict): A dictionary where keys are model names and values are the corresponding data. 
+    """
+    def __init__(self, data):
+        self.data = data
 
     def plot(self):
-        colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k']
+        """
+        Plots position and velocity as a function of time for each model.
+        """
         fig, axs = plt.subplots(2)
         
-        for model in self.models:
-            x, v, t, oscillations = model.solve(iterations=self.iterations)
+        for model, model_data in self.data.items():
+            x, v, t = model_data
+
+            label = str(model)
 
             # Plot of position as a function of time
-            axs[0].plot(t, x, label=f'F={model.model.force}')
+            axs[0].plot(t, x, label=label)
             
             # Plot of velocity as a function of time
-            axs[1].plot(t, v, label=f'F={model.model.force}')
-            
-            # Display the number of oscillations
-            print(f'For F={model.model.force}, {oscillations} oscillations were performed')
-            #max velocity and position
-            print(f'For F={model.model.force}, max velocity is {max(v)} and max position is {max(x)}')
-            #min velocity and position
-            print(f'For F={model.model.force}, min velocity is {min(v)} and min position is {min(x)}')
-        
+            axs[1].plot(t, v, label=label)
+
         axs[0].set_title('Position as a Function of Time')
         axs[0].set(xlabel='Time', ylabel='Position')
         axs[0].legend()
@@ -42,11 +43,26 @@ class Plotter:
 
 
 class AnimationPlotter:
+    """
+    Class for creating an animated plot of the position and velocity of various models over time.
+
+    Args:
+        euler_mass_spring_models (list): A list of EulerMassSpring model instances to be animated.
+    """
     def __init__(self, euler_mass_spring_models):
         self.models = euler_mass_spring_models
-        self.t = np.linspace(0, 50, 1000)  # Define the time range and resolution
+        self.t = np.linspace(0, 50, 100)  # Define the time range and resolution
 
     def animate(self, i):
+        """
+        Function to animate the position and velocity plots.
+
+        Args:
+            i (int): Current frame number.
+
+        Returns:
+            Updated plot lines.
+        """
         artists = []
         for line, model in zip(self.lines, self.models):
             x, v, t, oscillations = model.solve(iterations=self.t[i])  # Use t[i] instead of i*10
@@ -60,13 +76,16 @@ class AnimationPlotter:
         return artists
 
     def plot(self):
+        """
+        Sets up the position and velocity plots and initiates the animation.
+        """
         fig, axs = plt.subplots(2)
 
         self.lines = []
         for model in self.models:
             # Create a line for each model in both the position and velocity plots
-            line1, = axs[0].plot([], [], label=f'm={model.model.mass}')
-            line2, = axs[1].plot([], [], label=f'm={model.model.mass}')
+            line1, = axs[0].plot([], [], label=f'm={model.model.force}')
+            line2, = axs[1].plot([], [], label=f'm={model.model.force}')
             self.lines.append((line1, line2))
 
         axs[0].set_title('Position as a Function of Time')
@@ -87,5 +106,9 @@ class AnimationPlotter:
 
 class MyFuncAnimation(FuncAnimation):
     def _stop(self, *args):
+        """
+        Overridden function from FuncAnimation class to stop the animation.
+        """
         self.event_source.remove_callback(self._step)
         self.event_source = None
+
