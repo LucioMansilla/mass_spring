@@ -2,3 +2,4 @@
 - [ ] Theory Experiment.
 - [ ] Parametrizar los plots para no solo imprmir mass en las figuras.
 - [ ] Charlar el reporte.
+- [ ] Hacer una funcion reporte que informe max velocity, min velocity, max position, min position and number osilation

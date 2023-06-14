@@ -16,26 +16,33 @@ def mass_experiments():
     p.plot()
 
 def friction_experiments():
-    mass_spring_system1 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=0.0, force=1.0)
-    mass_spring_system2 = MassSpringSystem(mass=5.0, spring_resistance=1.0, friction=0.0, force=1.0)
+
+    mass_spring_system1 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=1.0)
+    mass_spring_system2 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=0.0, force=1.0)
 
     e1 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system1)
     e2 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system2)
 
+    #p = Plotter([e1, e2],100)
+    #p.plot()
+
     p = AnimationPlotter([e1, e2])
-    p.plot()
+    p.plot()    
 
 def force_experiments():
     mass_spring_system1 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=1.0)
-    mass_spring_system2 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=5.0)
+    mass_spring_system2 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=2.0)
+    mass_spring_system3 = MassSpringSystem(mass=1.0, spring_resistance=1.0, friction=1.0, force=3.0)
 
     e1 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system1)
     e2 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system2)
+    e3 = EulerMassSpring(x0=0, v0=0, dt=0.001, mass_spring_model=mass_spring_system3)
 
-    p = Plotter([e1, e2])
+    p = AnimationPlotter([e1, e2, e3])
     p.plot()
 
 if __name__ == '__main__':
-    mass_experiments()
+    #mass_experiments()
     #friction_experiments()
-   # force_experiments()
+    force_experiments()
+

@@ -14,13 +14,10 @@ if __name__ == '__main__':
     mass_spring_system = MassSpringSystem(mass=args.mass, spring_resistance=args.spring_resistance, friction=args.friction, force=args.force)
 
     # Crear el solver Euler para el sistema de masa y resorte
-    e = EulerMassSpring(x0=args.x0, v0=args.v0, dt=args.dt, mass_spring_model=mass_spring_system)
+    e = EulerMassSpring(x0=args.x, v0=args.v, dt=args.dt, mass_spring_model=mass_spring_system)
 
-    # Resolver el sistema
-    x, v, t = e.solve(iterations=args.sim_time)
-
-    # Graficar los resultados
-    plotter = Plotter(x, v, t)
+    # Resolver el sistema y graficar los resultados
+    plotter = Plotter([e])
     plotter.plot()
 
 
