@@ -1,4 +1,6 @@
 from mass_spring_system import MassSpringSystem
+
+
 class EulerMassSpring:
     """
     Class that implements the Euler method for solving the mass-spring system.
@@ -10,7 +12,9 @@ class EulerMassSpring:
         mass_spring_model (MassSpringSystem): Mass-spring system model.
     """
 
-    def __init__(self, x0:float, v0:float, dt:float, mass_spring_model:MassSpringSystem):
+    def __init__(
+        self, x0: float, v0: float, dt: float, mass_spring_model: MassSpringSystem
+    ):
         self.x = [x0]
         self.v = [v0]
         self.t = [0.0]
@@ -19,7 +23,7 @@ class EulerMassSpring:
         self.oscillations = 0
         self.previous_v_sign = self.sign(v0)
 
-    def sign(self, num:float) -> int:
+    def sign(self, num: float) -> int:
         """
         Calculates the sign of a given number.
 
@@ -38,7 +42,7 @@ class EulerMassSpring:
         Update the position, velocity, and time at each step.
         """
         self.x.append(self.x[-1] + self.dt * self.model.derivate_of_x(self.v))
-        new_v = self.v[-1] + self.dt * self.model.derivate_of_v(self.v,self.x)
+        new_v = self.v[-1] + self.dt * self.model.derivate_of_v(self.v, self.x)
         self.v.append(new_v)
         self.t.append(self.t[-1] + self.dt)
 
@@ -47,7 +51,7 @@ class EulerMassSpring:
             self.oscillations += 1
         self.previous_v_sign = current_v_sign
 
-    def solve(self, iterations:int):
+    def solve(self, iterations: int):
         """
         Solves the mass-spring system up to a given time.
 
@@ -60,11 +64,3 @@ class EulerMassSpring:
         while self.t[-1] < iterations:
             self.step()
         return self.x, self.v, self.t, self.oscillations
-
-
-
-
-
-   
-
-
