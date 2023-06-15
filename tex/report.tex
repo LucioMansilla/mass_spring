@@ -66,7 +66,7 @@ Las ecuaciones diferenciales que modelan este sistema continuo son:
 \end{align*}
 
 \section{Validación del Modelo}
-Para validar nuestro modelo de simulación del sistema masa-resorte, es necesario comparar los resultados obtenidos a través de la simulación con soluciones analíticas ya conocidas.
+Para validar nuestro modelo  es necesario comparar los resultados obtenidos a través de la simulación con soluciones analíticas ya conocidas.
 
 En particular, dado los parámetros $k = b = m = 1$, y considerando que $F(t) = 1$ junto con las condiciones iniciales $x(0) = 0$ y $v(0) = 0$, la solución analítica se expresa como sigue:
 
@@ -78,11 +78,9 @@ x(t) = 1 - \frac{\sqrt{3}}{3} \mathrm{e}^{\frac{-t}{2}}\sin\left(\frac{\sqrt{3}}
 v(t) = \frac{\sqrt{12}}{3} \mathrm{e}^{\frac{-t}{2}}\sin\left(\frac{\sqrt{3}}{2}t\right)
 \end{equation}
 
-Estas ecuaciones son válidas para todo $t \geq 0$.
-
+Estas ecuaciones son válidas para todo $t \geq 0$.\\
 
 Los valores de las funciones \(x(t)\) y \(v(t)\) para \(t = 1, 5, 10\) son:
-
 \begin{align*}
 x(1) &= 1 - \frac{\cos(\sqrt{3}/2)}{\sqrt{e}} - \frac{\sin(\sqrt{3}/2)}{\sqrt{3e}} \\
 v(1) &= \frac{2\sin(\sqrt{3}/2)}{\sqrt{3e}} \\
@@ -122,7 +120,7 @@ Los resultados de la simulación para los tiempos \(t = 1, 5, 10\) se muestran e
 Estos resultados muestran que la simulación proporciona valores que están en buena concordancia con las soluciones analíticas.
 
 \section{Experimentos}
-Realizamos una serie de experimentos variando la masa $m$, la constante del resorte $k$, la resistencia al rozamiento $b$, la fuerza externa $F$, y las condiciones iniciales de posición  , velocidad $x_0$ ,$v_0$ y el "paso" de tiempo $\Delta t$. A continuación, presentamos los resultados más interesantes de estos experimentos.
+Realizamos una serie de experimentos variando la masa $m$, la constante del resorte $k$, la resistencia al rozamiento $b$, la fuerza externa $F$. A continuación, presentamos los resultados más interesantes de estos experimentos.
 
 \subsection{Experimento 1: Variación de la masa}
 En este experimento, nos centramos en el impacto en  la variación de la masa $m$ en la dinámica del sistema. Para asegurar un control riguroso sobre las variables de estudio, mantuvimos constantes el resto de los parámetros:
@@ -135,9 +133,10 @@ En este experimento, nos centramos en el impacto en  la variación de la masa $m
 \item Velocidad inicial, $v_0 = 0.0$
 \end{itemize}
 
-Luego, implementamos simulaciones con distintos valores de masa, en particular $m = 1.0$ y $m = 3.0$. El paso de tiempo seleccionado para la simulación fue $\Delta t= 0.001$.
+Luego, implementamos simulaciones con distintos valores de masa, en particular $m = 1.0$ y $m = 3.0$. El paso de tiempo seleccionado para la simulación fue $\Delta t= 0.001$.\\
 
-Las simulaciones realizadas con 150 como límite de tiempo $t$ mostraron que a medida que la masa aumenta, el sistema tarda un mayor tiempo en alcanzar un estado de equilibrio, como se puede ver en la figura 1.
+Las simulaciones realizadas con $t\textunderscore max = 50$ como límite de tiempo $t$ mostraron que a medida que la masa aumenta, el sistema tarda un mayor tiempo en alcanzar un estado de equilibrio, como se puede ver en la figura 1.
+
 
 
 \captionsetup[figure]{
@@ -149,23 +148,23 @@ Las simulaciones realizadas con 150 como límite de tiempo $t$ mostraron que a m
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{../assets/figure_1_mass.jpeg}
-\caption{Posición - Velocidad en función del tiempo para distintos valores de masa, $t = 100$.}
+\caption{Posición - Velocidad en función del tiempo para distintos valores de masa, $t = 50$.}
 \end{figure}
 
 
-Este fenómeno se debe a que la fuerza aplicada, es constante i.e $F = 1$, por lo que se necesita más tiempo para generar suficiente impulso y mover la masa aumentada hacia el estado de equilibrio. Notar que en este caso al ser $t$ un límite de tiempo bajo, el sistema con mayor masa produce menos oscilaciones, puesto que la velocidad es menor y la amplitud es mayor, es decir, alcanza valores más altos en cuanto a posición lejos del equilibrio.\\
+Este fenómeno se debe a que la fuerza aplicada, es constante, $F(t) = 1$, por lo que se necesita más tiempo para generar suficiente impulso y llegar al punto de equilibrio. Notar que en este caso al ser $t$ un límite de tiempo bajo, el sistema con mayor masa produce menos oscilaciones, puesto que la velocidad es menor y la amplitud es mayor.\\
 
-Mismo experimento pero aumentando el límite de tiempo 
-$t$ mostro que el modelo con mayor masa presenta más oscilaciones antes de alcanzar el estado de equilibrio, como se puede ver en la figura 2.
+Mismo experimento fue realizado pero aumentando el límite de tiempo 
+$t$, mostró que el modelo con mayor masa presenta una mayor cantidad de oscilaciones antes de alcanzar el estado de equilibrio, como se puede ver en la figura 2.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../assets/figure_3_mass.jpeg}
-    \caption{Posición - Velocidad en función del tiempo para distintos valores de masa, $t = 150$.}
+    \caption{Posición - Velocidad en función del tiempo para distintos valores de masa, $t = 300$.}
 \end{figure}
     
 
-Se presentan los resultados observados de la figura 1 y 2 junto con los datos de oscilacion, velocidad y posición en las tablas 1 2 y 3.
+Se presentan los resultados observados de la figura 1 y 2 junto con los datos de oscilacion, velocidad y posición en las tablas 2 3 y 4.
 \captionsetup[table]{
   font=small,
   labelfont=bf,
@@ -228,20 +227,20 @@ Se presentan los resultados observados de la figura 1 y 2 junto con los datos de
     \hline
     \end{tabular*}
 \end{table}
-A partir de los datos presentados en las tablas, se puede observar que el sistema con una mayor masa (4.0) presenta un mayor número de oscilaciones, una velocidad máxima y mínima más baja, y una mayor posición máxima en comparación con el sistema con una masa más baja (1.0). Esto refuerza la observación de que el sistema con una mayor masa tarda más tiempo en alcanzar el equilibrio y tiene una mayor amplitud de oscilación.
+A partir de los datos presentados en las tablas, se puede observar que el sistema con una mayor masa (4.0) presenta un mayor número de oscilaciones, velocidad máxima y mínima más baja, y una mayor distancia al punto de equilibrio  en  comparación con el sistema con menor masa (1.0). Esto refuerza la observación de que el sistema con una mayor masa tarda más tiempo en alcanzar el equilibrio y tiene una mayor amplitud de oscilación.
 
 \subsection{Experimento 2: Ausencia de Fricción}
 
-En este experimento, exploramos la dinámica del sistema en ausencia de fricción. Para ello, comparamos dos modelos que difieren solo en el coeficiente de fricción $b$:
+En este experimento, exploramos la dinámica del sistema en ausencia de fricción. Para ello, comparamos dos modelos que difieren solo en el coeficiente $b$:
 
 \begin{itemize}
 \item Modelo 1: $m = 1.0$, $k = 1.0$, $b = 1.0$, $F = 1.0$
 \item Modelo 2: $m = 1.0$, $k = 1.0$, $b = 0.0$, $F = 1.0$
+\item Simulación: $t = 300$, $\Delta t = 0.001$
+\item Condiciones iniciales: $x(0) = 0.0$, $v(0) = 0.0$
 \end{itemize}
 
-Ambos modelos fueron simulados por un tiempo de $t = 300$ con un paso de tiempo $\Delta t = 0.001$.
-
-El modelo 1, que incluye la presencia de fricción, presenta los resultados resumidos en la tabla 4.
+El modelo 1, que incluye la presencia de fricción, presenta los resultados resumidos en la tabla 5.
 
 \begin{table}[H]
     \caption{Resultados para el Modelo 1 con fricción}
@@ -256,7 +255,7 @@ El modelo 1, que incluye la presencia de fricción, presenta los resultados resu
     \end{tabular*}
 \end{table}
 
-El modelo 2, en ausencia de fricción, muestra los resultados resumidos en la tabla 5.
+El modelo 2, en ausencia de fricción, muestra los resultados en la tabla 6.
 
 \begin{table}[H]
     \caption{Resultados para el Modelo 2 sin fricción}
@@ -273,9 +272,9 @@ El modelo 2, en ausencia de fricción, muestra los resultados resumidos en la ta
 
 De manera interesante, los resultados muestran que en ausencia de fricción, el sistema realiza más oscilaciones, alcanza velocidades más altas y posiciones más alejadas del equilibrio. 
 
-Además, es importante destacar que en el modelo sin fricción y con una fuerza externa constante, el sistema no converge a un estado de equilibrio, a diferencia de lo que se observa en sistemas con fricción. Este fenómeno se puede explicar en términos de la constante entrada de energía al sistema a través de la fuerza externa, que en ausencia de fricción no puede ser disipada.
+Además, es importante destacar que en el modelo sin fricción y con una fuerza externa constante $F(t) = 1.0$, el sistema no converge a un estado de equilibrio, a diferencia de lo que se observa en sistemas con fricción. Este fenómeno se puede explicar en términos de la constante entrada de energía al sistema a través de la fuerza externa, que en ausencia de fricción no puede ser disipada.
 
-Estas observaciones se vuelven más claras al analizar las gráficas de la posición y velocidad en función del tiempo para los dos modelos, que se muestran en la Figura 2. 
+Estas observaciones se vuelven más claras al analizar las gráficas de la posición y velocidad en función del tiempo para los dos modelos, que se muestran en la Figura 3. 
 
 \captionsetup[figure]{
   font=small,
@@ -289,7 +288,7 @@ Estas observaciones se vuelven más claras al analizar las gráficas de la posic
 \caption{Posición y velocidad en función del tiempo para los modelos con y sin fricción.}
 \end{figure}
 
-Estos resultados resaltan el papel crucial de la fricción como mecanismo de disipación de energía que permite la convergencia al estado de equilibrio, limita las velocidades máximas y restringe las posiciones máximas que el sistema puede alcanzar.
+Estos resultados resaltan el papel crucial de la fricción como mecanismo de disipación de energía que permite la convergencia al punto de equilibrio, limita las velocidades máximas y restringe las posiciones máximas que el sistema puede alcanzar.
 
 \subsection{Experimento 3: Desplazamiento del estado de equilibrio}
 
@@ -303,9 +302,9 @@ En este experimento, investigamos el efecto de variar la fuerza $F$ en la dinám
 \item Velocidad inicial, $v_0 = 0.0$
 \end{itemize}
 
-Luego, implementamos simulaciones con distintos valores de fuerza, en particular $F = 1.0$, $F = 2.0$ y $F = 3.0$. 
+Luego, implementamos simulaciones con distintos valores de fuerza, en particular $F = 1.0$, $F = 2.0$ y $F = 3.0$.\\
 
-Los resultados de las simulaciones para cada valor de fuerza se resumen en la tabla 6.
+Los resultados de las simulaciones para cada valor de fuerza se resumen en la tabla \ref{tab:force_results}.
 
 \begin{table}[H]
     \caption{Resultados para distintos valores de fuerza}
@@ -324,9 +323,9 @@ Los resultados de las simulaciones para cada valor de fuerza se resumen en la ta
     \end{tabular*}
 \end{table}
 
-Los resultados muestran que aumentar la fuerza aplicada aumenta tanto la velocidad máxima como la posición máxima alcanzada por el sistema, sin alterar el número de oscilaciones.
+Los resultados muestran que al  aumentar la fuerza que se aplica se incrementa tanto la velocidad máxima como la posición máxima alcanzada por el sistema, sin alterar el número de oscilaciones.\\
 
-El efecto de la variación de la fuerza se puede visualizar en la figura 3, que muestra la posición y la velocidad en función del tiempo para los distintos valores de fuerza.
+El efecto de la variación de la fuerza se puede visualizar en la figura \ref{fig:force_results}, que muestra la posición y la velocidad en función del tiempo para los distintos valores de fuerza.
 
 \captionsetup[figure]{
   font=small,
@@ -338,19 +337,21 @@ El efecto de la variación de la fuerza se puede visualizar en la figura 3, que 
 \centering
 \includegraphics[width=\textwidth]{../assets/figure_1_force.jpeg}
 \caption{Posición - Velocidad en función del tiempo para distintos valores de fuerza.}
+\label{fig:force_results}
 \end{figure}
 
-Estos resultados indican que aumentar la fuerza aplicada al sistema puede ser una forma efectiva de aumentar tanto la velocidad como la distancia que el sistema puede alcanzar sin alterar significativamente la frecuencia de oscilación.
+Estos resultados indican que aumentar la fuerza aplicada al sistema puede ser una forma efectiva de aumentar tanto la velocidad como la distancia que el sistema puede alcanzar como se discutió anteriormente, también es importante destacar que al ser $F(t)$ constante el punto de equilibrio del sistema se desplaza, como se puede observar en la figura \ref{fig:force_results}.
 
 \section{Conclusiones}
-En este estudio, investigamos la dinámica de un sistema oscilatorio bajo la influencia de una serie de parámetros, incluyendo la masa del objeto, la resistencia al rozamiento, la fuerza aplicada, y las condiciones iniciales de posición y velocidad. Los hallazgos principales son los siguientes:
+En este estudio, investigamos la dinámica de un sistema oscilatorio \textit{masa-resorte} bajo la influencia de una serie de parámetros, incluyendo la masa del objeto, la resistencia al rozamiento, la fuerza externa, y las condiciones iniciales de posición y velocidad. 
+Al final de cada experimento se realizó una conclusión sobre los resultados obtenidos, resumidamente destacamos:
 
 \begin{itemize}
-\item Aumentar la masa del objeto lleva a un mayor tiempo para alcanzar el estado de equilibrio y a una mayor amplitud de oscilación, manteniendo los demás parámetros constantes. Este resultado se deriva de la mayor inercia del objeto, lo que requiere una mayor cantidad de impulso para moverlo.
-\item La fricción desempeña un papel crucial en la disipación de la energía del sistema, permitiendo su convergencia al estado de equilibrio. En ausencia de fricción, observamos que el sistema realizaba más oscilaciones, alcanzaba velocidades más altas, y lograba posiciones más alejadas del equilibrio. En particular, un sistema sin fricción y con una fuerza externa constante no converge a un estado de equilibrio, lo que puede atribuirse a la constante entrada de energía al sistema que no puede ser disipada.
-\item Al variar la fuerza externa aplicada, descubrimos que aumentar la fuerza resulta en un incremento en la velocidad máxima y la posición máxima alcanzada por el sistema, sin alterar el número de oscilaciones. Este hallazgo sugiere que es posible aumentar la velocidad y la distancia que el sistema puede alcanzar sin alterar significativamente la frecuencia de oscilación mediante la aplicación de una fuerza mayor.
+\item Aumentar la masa del objeto requiere un mayor tiempo $t$  para alcanzar el punto de equilibrio y este aumento de masa ocasiona una mayor amplitud de oscilación. Este resultado se deriva de la mayor inercia presentada por el objeto, lo que requiere más impuslo para moverlo.
+\item La fricción desempeña un papel crucial en la disipación de la energía del sistema, permitiendo su convergencia al punto de equilibrio. En ausencia de fricción, observamos que el sistema realizaba más oscilaciones, alcanzaba velocidades más altas, y lograba posiciones más alejadas del equilibrio. En particular, un sistema sin fricción y con una fuerza externa constante $F(t)$ no converge a un estado de equilibrio, ya que la energia no puede ser disipada.
+\item Al variar la fuerza externa, descubrimos que aumentarla resulta en un incremento en la velocidad máxima y  posición máxima, sin alterar el número de oscilaciones. No obstante, al ser $F(t)$ constante el punto de equilibrio del sistema se desplaza, como se pudo observar en el experimento debatido en la seccion anterior.
 \end{itemize}
 
-En conclusión, nuestros experimentos con un modelo oscilatorio simple revelan la influencia significativa que pueden tener diversos parámetros sobre la dinámica del sistema. Estos hallazgos proporcionan un marco para futuras investigaciones en sistemas oscilatorios más complejos y ayudan a dilucidar los mecanismos subyacentes que regulan estos sistemas.
+Conclusiones más detalladas se pueden encontrar en la sección 4 de este informe, a través de cada experimento realizado.
 
 \end{document}
