@@ -2,6 +2,10 @@
 
 Este proyecto forma parte de las actividades asignadas para la materia "Simulación". Su finalidad es simular el comportamiento de un sistema masa-resorte mediante el uso del método de Euler, que consiste en un procedimiento numérico para resolver ecuaciones diferenciales.
 
+
+![nombre_alternativo](assets/friction_exp.gif)
+
+
 ## Preparación del Entorno / Dependencias
 
 Para este proyecto se requieren las siguientes dependencias:
