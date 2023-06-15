@@ -66,9 +66,68 @@ Las ecuaciones diferenciales que modelan este sistema continuo son:
 \end{align*}
 
 \section{Validación del Modelo}
-Para validar el modelo de simulación de masa-resorte, necesitamos comparar los resultados de la simulación con los resultados experimentales o con soluciones analíticas conocidas del sistema.
+Para validar nuestro modelo de simulación del sistema masa-resorte, es necesario comparar los resultados obtenidos a través de la simulación con soluciones analíticas ya conocidas del sistema.
+
+Dado los parámetros $k = b = m = 1$, y considerando que $F(t) = 1$ para todo $t \geq 0$, junto con las condiciones iniciales $x(0) = 0$ y $v(0) = 0$, la solución analítica se expresa como sigue:
+
+\begin{equation}
+x(t) = 1 - \frac{\sqrt{3}}{3} \mathrm{e}^{\frac{-t}{2}}\sin\left(\frac{\sqrt{3}}{2}t\right)-\mathrm{e}^{\frac{-t}{2}}\cos\left(\frac{\sqrt{3}}{2}t\right)
+\end{equation}
+
+\begin{equation}
+v(t) = \frac{\sqrt{12}}{3} \mathrm{e}^{\frac{-t}{2}}\sin\left(\frac{\sqrt{3}}{2}t\right)
+\end{equation}
+
+Estas ecuaciones son válidas para todo $t \geq 0$.
+
+Los valores de las funciones \(x(t)\) y \(v(t)\) para \(t = 1, 5, 10\) son:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Tiempo ($t$)} & \textbf{Posición ($x(t)$)} & \textbf{Velocidad ($v(t)$)} \\
+    \hline
+    1 & \(1 - \frac{\cos(\sqrt{3}/2)}{\sqrt{e}} - \frac{\sin(\sqrt{3}/2)}{\sqrt{3e}}\) & \(\frac{2\sin(\sqrt{3}/2)}{\sqrt{3e}}\) \\
+    \hline
+    5 & \(1 - \frac{\cos(5\sqrt{3}/2)}{e^{5/2}} - \frac{\sin(5\sqrt{3}/2)}{\sqrt{3}e^{5/2}}\) & \(\frac{2\sin(5\sqrt{3}/2)}{\sqrt{3}e^{5/2}}\) \\
+    \hline
+    10 & \(1 - \frac{\cos(5\sqrt{3})}{e^5} - \frac{\sin(5\sqrt{3})}{\sqrt{3}e^5}\) & \(\frac{2\sin(5\sqrt{3})}{\sqrt{3}e^5}\) \\
+    \hline
+    \end{tabular}
+\end{table}
+
+Los resultados de la simulación para los tiempos \(t = 1, 5, 10\) se muestran en la siguiente tabla:
+
+\captionsetup[table]{
+  font=small,
+  labelfont=bf,
+  margin={1cm, 0cm}
+}
+
+\begin{table}[H]
+    \caption{Resultados de la simulación para diferentes tiempos}
+    \label{tab:time_x_v}
+    \centering
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|c|c|c|}
+    \hline
+    \textbf{Tiempo ($t$)} & \textbf{Posición ($x(t)$)} & \textbf{Velocidad ($v(t)$)} \\
+    \hline
+    1 & 0.340 & 0.534 \\
+    \hline
+    5 & 1.075 & -0.088 \\
+    \hline
+    10 & 1.002 & 0.005 \\
+    \hline
+    \end{tabular*}
+\end{table}
+
+Estos resultados muestran que la simulación proporciona valores que están en buena concordancia con las soluciones analíticas, validando así el modelo de simulación del sistema masa-resorte.
+
 
 \subsection{Comparación con Soluciones Analíticas}
+
+
 % La ecuación diferencial que describe un sistema masa-resorte sin amortiguamiento es una ecuación bien conocida cuya solución es una función sinusoidal o cosinusoidal. Si incluimos el amortiguamiento, la solución se convierte en una exponencial amortiguada multiplicada por una sinusoidal o cosinusoidal. Podemos comparar los resultados de nuestra simulación con estas soluciones analíticas para verificar que nuestro modelo esté funcionando correctamente. 
 
 

@@ -35,3 +35,13 @@ For F=3.0, 13 oscillations were performed
 For F=3.0, max velocity is 1.6390953559463546 and max position is 3.4888048373461475
 For F=3.0, min velocity is -0.2670659118494098 and min position is 0
 
+T = 10
+x =  1.002170188277716 v =  0.005385207329495083
+
+T = 5
+x =  1.0745889190150206 v =  -0.08794173622131887
+
+T = 1
+x =  0.3403036136533044 v =  0.5335095565063365
+
+

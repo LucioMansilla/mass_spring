@@ -1,10 +1,10 @@
 # Simulación de Sistema Continuo: Masa-Resorte
 
-Este proyecto forma parte de las tareas asignadas para la materia "Simulación de Sistema Continuo". El objetivo es modelar un sistema de masa-resorte utilizando métodos numéricos para resolver ecuaciones diferenciales.
+Este proyecto forma parte de las actividades asignadas para la materia "Simulación". Su finalidad es simular el comportamiento de un sistema masa-resorte mediante el uso del método de Euler, que consiste en un procedimiento numérico para resolver ecuaciones diferenciales.
 
 ## Preparación del Entorno / Dependencias
 
-Este proyecto requiere las siguientes dependencias:
+Para este proyecto se requieren las siguientes dependencias:
 
 - [Python >= 3.7](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installation/)
@@ -16,42 +16,37 @@ Para comprobar si tienes las versiones correctas de Python y pip instaladas, pue
 python --version
 pip --version
 ```
-Para verificar la instalación de ffmpeg, puedes utilizar el siguiente comando:
+Puedes verificar si ffmpeg está instalado correctamente usando el siguiente comando:
 
 ```bash
 ffmpeg -version
 ```
 
-
 ### Instalación de Dependencias del Proyecto:
 
-Todas las dependencias específicas del proyecto están listadas en el archivo `requirements.txt`. Para instalar estas dependencias, navega a la raíz del proyecto en tu terminal y ejecuta el siguiente comando:
+El archivo `requirements.txt` contiene todas las dependencias específicas del proyecto. Para instalarlas, ejecuta el siguiente comando:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-
-
 ## Estructura del Proyecto
 
-El proyecto tiene la siguiente estructura:
+La estructura del proyecto es la siguiente:
 
-- `assets/`: Este directorio contiene todas las imágenes y videos generados por las simulaciones.
-- `constants.py`: Este archivo define constantes que son utilizadas en varias partes del proyecto.
-- `datos.txt`: Este archivo contiene los datos generados por las simulaciones.
-- `euler_mass_spring.py`: Este script implementa el método de Euler para resolver las ecuaciones diferenciales del sistema.
-- `experiments.py`: Este script realiza varios experimentos con diferentes parámetros y genera las correspondientes visualizaciones.
-- `mass_spring_system.py`: Este script define la clase `MassSpringSystem`, que representa el sistema de masa-resorte.
-- `parser.py`: Este script procesa los argumentos de la línea de comandos para configurar la simulación.
-- `plotter.py`: Este script genera gráficas a partir de los datos de las simulaciones.
-- `run.py`: Este es el script principal que debes ejecutar para realizar una simulación.
-- `README.md`: Este archivo proporciona una descripción general y instrucciones para el proyecto.
-- `requirements.txt`: Este archivo contiene las dependencias necesarias para ejecutar el proyecto.
+- `assets/`: imágenes y videos de las simulaciones. 
+- `constants.py`: constantes utilizadas en el proyecto.
+- `euler_mass_spring.py`: implementación del método de Euler para el sistema.
+- `experiments.py`:  experimentos con diferentes parámetros y visualizaciones.
+- `mass_spring_system.py`:  clase que modela el sistema de masa-resorte
+- `parser.py`: procesamiento de los argumentos de la línea de comandos.
+- `plotter.py`: gráficas de los datos de las simulaciones.
+- `run.py`: script principal para ejecutar una simulación.  
+- `requirements.txt`: dependencias necesarias para ejecutar el proyecto.
 
 ## Uso
 
-El script `run.py` permite ejecutar una simulación del sistema masa-resorte con los parámetros proporcionados a través de la línea de comandos. Aquí encontrarás información sobre cómo proporcionar estos parámetros y cómo utilizar el script.
+El script `run.py` permite ejecutar una simulación del sistema masa-resorte con los parámetros proporcionados a través de la línea de comandos. A continuación te explicamos cómo indicar estos parámetros y cómo ejecutar el script.
 
 ### Parámetros requeridos
 
@@ -63,11 +58,11 @@ El script `run.py` permite ejecutar una simulación del sistema masa-resorte con
 ### Parámetros opcionales
 
 - `-dt`: Intervalo de tiempo para la simulación (por defecto es 0.001 s).
-- `-t`, `--sim_time`: Tiempo total de simulación (por defecto es 100 s).
+- `-t`: Tiempo total de simulación (por defecto es 100 s).
 - `-x`: Posición inicial del sistema (por defecto es 0 m).
 - `-v`: Velocidad inicial del sistema (por defecto es 0 m/s).
 
-Para obtener una descripción detallada de cada parámetro y sus valores predeterminados, puedes ejecutar el siguiente comando para mostrar la ayuda del script:
+Si quieres saber más sobre cada parámetro y los valores que se usan por defecto, puedes ejecutar el siguiente comando para ver la ayuda del script:
 
 ```bash
 python run.py -h
@@ -78,14 +73,13 @@ python run.py -h
 A continuación, se presentan algunos ejemplos de cómo podrías usar el script `run.py`:
 
 ```bash
-python run.py -mass 1 -spring_resistance 10 -friction 0.5 -force 10
+python run.py -mass 1.0 -spring_resistance 1.0 -friction 1.0 -force 1.0
 ```
 
-
-Si deseas cambiar el intervalo de tiempo(paso) a 0.01 s y el tiempo total de simulación a 200 s, mientras mantienes los demás parámetros iguales, el comando sería:
+Si deseas cambiar el intervalo de tiempo (paso) a 0.01 s y el tiempo total de simulación a 200 s, mientras los demás parámetros se mantienen iguales, debes usar el siguiente comando:
 
 ```bash
-python run.py -mass 1 -spring_resistance 10 -friction 0.5 -force 10 -dt 0.01 -t 200
+python run.py -mass 1.0 -spring_resistance 1.0 -friction 1.0 -force 1.0 -dt 0.01 -t 200
 ```
 
 ## Reporte

@@ -51,7 +51,7 @@ class AnimationPlotter:
     """
     def __init__(self, euler_mass_spring_models):
         self.models = euler_mass_spring_models
-        self.t = np.linspace(0, 50, 100)  # Define the time range and resolution
+        self.t = np.linspace(0, 50, 100)  
 
     def animate(self, i):
         """
@@ -65,13 +65,13 @@ class AnimationPlotter:
         """
         artists = []
         for line, model in zip(self.lines, self.models):
-            x, v, t, oscillations = model.solve(iterations=self.t[i])  # Use t[i] instead of i*10
-            line[0].set_data(t, x)  # Update the position plot
-            line[1].set_data(t, v)  # Update the velocity plot
-            line[0].axes.set_xlim(t[0], t[-1])  # Update the x-axis limits for the position plot
-            line[1].axes.set_xlim(t[0], t[-1])  # Update the x-axis limits for the velocity plot
-            line[0].axes.set_ylim(-0.1, 3.7)  # Set y-axis limits for the position plot
-            line[1].axes.set_ylim(-0.30, 1.6)  # Set y-axis limits for the velocity plot
+            x, v, t, oscillations = model.solve(iterations=self.t[i]) 
+            line[0].set_data(t, x)  
+            line[1].set_data(t, v) 
+            line[0].axes.set_xlim(t[0], t[-1])  
+            line[1].axes.set_xlim(t[0], t[-1])  
+            line[0].axes.set_ylim(-0.1, 3.7) 
+            line[1].axes.set_ylim(-0.30, 1.6)  
             artists.extend(line)
         return artists
 
@@ -83,7 +83,6 @@ class AnimationPlotter:
 
         self.lines = []
         for model in self.models:
-            # Create a line for each model in both the position and velocity plots
             line1, = axs[0].plot([], [], label=f'm={model.model.force}')
             line2, = axs[1].plot([], [], label=f'm={model.model.force}')
             self.lines.append((line1, line2))
@@ -96,8 +95,7 @@ class AnimationPlotter:
         axs[1].set(xlabel='Time', ylabel='Velocity')
         axs[1].legend()
 
-        # Set up the animation
-        ani = MyFuncAnimation(fig, self.animate, frames=len(self.t), interval=20, blit=True)  # Use len(t) frames
+        ani = MyFuncAnimation(fig, self.animate, frames=len(self.t), interval=20, blit=True)
         ani.save("animation.mp4", writer='ffmpeg')
         plt.subplots_adjust(hspace = 2)
         plt.tight_layout()
@@ -105,9 +103,22 @@ class AnimationPlotter:
 
 
 class MyFuncAnimation(FuncAnimation):
+    """
+    Customized animation class.
+
+    This class extends the FuncAnimation class and provides additional functionality for stopping the animation.
+
+    Args:
+        FuncAnimation (class): The base animation class to be extended.
+
+    """
     def _stop(self, *args):
         """
-        Overridden function from FuncAnimation class to stop the animation.
+        Stops the animation. 
+        Overrides the default _stop() method in the FuncAnimation class.
+
+        Args:
+            *args: Variable-length argument list.
         """
         self.event_source.remove_callback(self._step)
         self.event_source = None

@@ -19,6 +19,13 @@ def report(models_data):
         table.add_row([model, oscillations, max(v), max(x), min(v), min(x)])
 
     print(table)
+    #print the values in the t = 10
+    print("The values in the t = 10")
+    for model, data in models_data.items():
+        x, v, t, oscillations = data
+        print(model, "x = ", x[-1], "v = ", v[-1])
+
+    
 
 
 if __name__ == '__main__':
