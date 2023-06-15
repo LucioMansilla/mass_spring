@@ -36,10 +36,10 @@ def run_experiment(
 
 if __name__ == "__main__":
     # Experiment with different masses
-    run_experiment(MASS_EXPERIMENT_PARAMS)
+    #run_experiment(MASS_EXPERIMENT_PARAMS, animation=True)
 
     # Experiment with different friction coefficients
-    run_experiment(FRICTION_EXPERIMENT_PARAMS)
+   # run_experiment(FRICTION_EXPERIMENT_PARAMS,animation=True)
 
     # Experiment with different external forces
-    run_experiment(FORCE_EXPERIMENT_PARAMS)
+    run_experiment(FORCE_EXPERIMENT_PARAMS ,animation=True)

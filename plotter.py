@@ -54,7 +54,7 @@ class AnimationPlotter:
 
     def __init__(self, euler_mass_spring_models):
         self.models = euler_mass_spring_models
-        self.t = np.linspace(0, 50, 100)
+        self.t = np.linspace(0, 50, 700)
 
     def animate(self, i):
         """
@@ -74,7 +74,7 @@ class AnimationPlotter:
             line[0].axes.set_xlim(t[0], t[-1])
             line[1].axes.set_xlim(t[0], t[-1])
             line[0].axes.set_ylim(-0.1, 3.7)
-            line[1].axes.set_ylim(-0.30, 1.6)
+            line[1].axes.set_ylim(-0.3, 1.8)
             artists.extend(line)
         return artists
 
@@ -86,22 +86,21 @@ class AnimationPlotter:
 
         self.lines = []
         for model in self.models:
-            (line1,) = axs[0].plot([], [], label=f"m={model.model.force}")
-            (line2,) = axs[1].plot([], [], label=f"m={model.model.force}")
+            (line1,) = axs[0].plot([], [], label=f"F={model.model.force}")
+            (line2,) = axs[1].plot([], [], label=f"F={model.model.force}")
             self.lines.append((line1, line2))
 
-        axs[0].set_title("Position as a Function of Time")
         axs[0].set(xlabel="Time", ylabel="Position")
-        axs[0].legend()
-
-        axs[1].set_title("Velocity as a Function of Time")
+        #ficticious label to make space for legend
         axs[1].set(xlabel="Time", ylabel="Velocity")
-        axs[1].legend()
+        axs[1].legend(loc='upper right')
+        axs[0].legend(loc='upper right')
+
 
         ani = MyFuncAnimation(
             fig, self.animate, frames=len(self.t), interval=20, blit=True
         )
-        ani.save("animation.mp4", writer="ffmpeg")
+        ani.save("force_exp.gif", writer="Pillow")
         plt.subplots_adjust(hspace=2)
         plt.tight_layout()
         plt.show()
