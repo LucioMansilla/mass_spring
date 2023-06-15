@@ -86,3 +86,8 @@ python run.py -mass 1.0 -spring_resistance 1.0 -friction 1.0 -force 1.0 -dt 0.01
 
 En el archivo 'report.pdf' encontrarás un análisis detallado de los experimentos más interesantes llevados a cabo durante este proyecto, junto con sus respectivas conclusiones y contrastación con soluciones analíticas.
 
+Por otro diferentes archivos multimedia (mp4,gif,png) basados en experimentos ya realizados se encuentran disponibles en la carpeta 'assets'. Algunos ejemplos de ellos son los siguientes:
+
+![nombre_alternativo](assets/force_exp.gif)
+
+
