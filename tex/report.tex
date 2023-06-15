@@ -66,9 +66,9 @@ Las ecuaciones diferenciales que modelan este sistema continuo son:
 \end{align*}
 
 \section{Validación del Modelo}
-Para validar nuestro modelo de simulación del sistema masa-resorte, es necesario comparar los resultados obtenidos a través de la simulación con soluciones analíticas ya conocidas del sistema.
+Para validar nuestro modelo de simulación del sistema masa-resorte, es necesario comparar los resultados obtenidos a través de la simulación con soluciones analíticas ya conocidas.
 
-Dado los parámetros $k = b = m = 1$, y considerando que $F(t) = 1$ para todo $t \geq 0$, junto con las condiciones iniciales $x(0) = 0$ y $v(0) = 0$, la solución analítica se expresa como sigue:
+En particular, dado los parámetros $k = b = m = 1$, y considerando que $F(t) = 1$ junto con las condiciones iniciales $x(0) = 0$ y $v(0) = 0$, la solución analítica se expresa como sigue:
 
 \begin{equation}
 x(t) = 1 - \frac{\sqrt{3}}{3} \mathrm{e}^{\frac{-t}{2}}\sin\left(\frac{\sqrt{3}}{2}t\right)-\mathrm{e}^{\frac{-t}{2}}\cos\left(\frac{\sqrt{3}}{2}t\right)
@@ -80,22 +80,19 @@ v(t) = \frac{\sqrt{12}}{3} \mathrm{e}^{\frac{-t}{2}}\sin\left(\frac{\sqrt{3}}{2}
 
 Estas ecuaciones son válidas para todo $t \geq 0$.
 
+
 Los valores de las funciones \(x(t)\) y \(v(t)\) para \(t = 1, 5, 10\) son:
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|}
-    \hline
-    \textbf{Tiempo ($t$)} & \textbf{Posición ($x(t)$)} & \textbf{Velocidad ($v(t)$)} \\
-    \hline
-    1 & \(1 - \frac{\cos(\sqrt{3}/2)}{\sqrt{e}} - \frac{\sin(\sqrt{3}/2)}{\sqrt{3e}}\) & \(\frac{2\sin(\sqrt{3}/2)}{\sqrt{3e}}\) \\
-    \hline
-    5 & \(1 - \frac{\cos(5\sqrt{3}/2)}{e^{5/2}} - \frac{\sin(5\sqrt{3}/2)}{\sqrt{3}e^{5/2}}\) & \(\frac{2\sin(5\sqrt{3}/2)}{\sqrt{3}e^{5/2}}\) \\
-    \hline
-    10 & \(1 - \frac{\cos(5\sqrt{3})}{e^5} - \frac{\sin(5\sqrt{3})}{\sqrt{3}e^5}\) & \(\frac{2\sin(5\sqrt{3})}{\sqrt{3}e^5}\) \\
-    \hline
-    \end{tabular}
-\end{table}
+\begin{align*}
+x(1) &= 1 - \frac{\cos(\sqrt{3}/2)}{\sqrt{e}} - \frac{\sin(\sqrt{3}/2)}{\sqrt{3e}} \\
+v(1) &= \frac{2\sin(\sqrt{3}/2)}{\sqrt{3e}} \\
+x(5) &= 1 - \frac{\cos(5\sqrt{3}/2)}{e^{5/2}} - \frac{\sin(5\sqrt{3}/2)}{\sqrt{3}e^{5/2}} \\
+v(5) &= \frac{2\sin(5\sqrt{3}/2)}{\sqrt{3}e^{5/2}} \\
+x(10) &= 1 - \frac{\cos(5\sqrt{3})}{e^5} - \frac{\sin(5\sqrt{3})}{\sqrt{3}e^5} \\
+v(10) &= \frac{2\sin(5\sqrt{3})}{\sqrt{3}e^5}
+\end{align*}
+
+
 
 Los resultados de la simulación para los tiempos \(t = 1, 5, 10\) se muestran en la siguiente tabla:
 
@@ -106,7 +103,7 @@ Los resultados de la simulación para los tiempos \(t = 1, 5, 10\) se muestran e
 }
 
 \begin{table}[H]
-    \caption{Resultados de la simulación para diferentes tiempos}
+    \caption{Resultados de la simulación para t=1, 5, 10}
     \label{tab:time_x_v}
     \centering
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|c|c|c|}
@@ -122,14 +119,7 @@ Los resultados de la simulación para los tiempos \(t = 1, 5, 10\) se muestran e
     \end{tabular*}
 \end{table}
 
-Estos resultados muestran que la simulación proporciona valores que están en buena concordancia con las soluciones analíticas, validando así el modelo de simulación del sistema masa-resorte.
-
-
-\subsection{Comparación con Soluciones Analíticas}
-
-
-% La ecuación diferencial que describe un sistema masa-resorte sin amortiguamiento es una ecuación bien conocida cuya solución es una función sinusoidal o cosinusoidal. Si incluimos el amortiguamiento, la solución se convierte en una exponencial amortiguada multiplicada por una sinusoidal o cosinusoidal. Podemos comparar los resultados de nuestra simulación con estas soluciones analíticas para verificar que nuestro modelo esté funcionando correctamente. 
-
+Estos resultados muestran que la simulación proporciona valores que están en buena concordancia con las soluciones analíticas.
 
 \section{Experimentos}
 Realizamos una serie de experimentos variando la masa $m$, la constante del resorte $k$, la resistencia al rozamiento $b$, la fuerza externa $F$, y las condiciones iniciales de posición  , velocidad $x_0$ ,$v_0$ y el "paso" de tiempo $\Delta t$. A continuación, presentamos los resultados más interesantes de estos experimentos.

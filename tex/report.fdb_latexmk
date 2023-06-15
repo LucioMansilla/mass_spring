@@ -1,11 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1686787756 "/home/luciom/Escritorio/sim/masa-resorte/tex/report.tex" "report.pdf" "report" 1686787757 0
+["pdflatex"] 1686788266 "/home/luciom/Escritorio/sim/masa-resorte/tex/report.tex" "report.pdf" "report" 1686788266 0
   "../assets/figure_1_force.jpeg" 1686760757 58907 b690991637963c6a6c075b388642726f ""
   "../assets/figure_1_mass.jpeg" 1686680927 54862 b9ce7d7d93b226e1049bfca2ebdd4241 ""
   "../assets/figure_2_friction.jpeg" 1686757754 169498 fb655a0b976977a4257acc09d6f4edb7 ""
   "../assets/figure_3_mass.jpeg" 1686682078 50866 562bd5ed4fd86594ad66b3c97c2b8235 ""
   "/home/luciom/.texlive2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1684638453 7862929 0273a3f92cce2b0d8ae779571cdbbd2b ""
-  "/home/luciom/Escritorio/sim/masa-resorte/tex/report.tex" 1686787756 16759 dd10418ddf676f6085b4bb9197a4bb8c ""
+  "/home/luciom/Escritorio/sim/masa-resorte/tex/report.tex" 1686788265 15938 5a5348ead66c0031b7f86f74a5ea23c1 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -47,7 +47,6 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb" 1215737283 143961 201304b65f97bc643fbd0bcf0685d1fe ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb" 1215737283 145408 43d44302ca7d82d487f511f83e309505 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb" 1215737283 140176 d4962f948b4cc0adf4d3dde77a128c95 ""
@@ -207,8 +206,8 @@
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1655066402 56148 51a9a8571c07b9921892ae11063ae853 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1684972800 40326 aba987258e6d6b6da5dec3a727ea174b ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1686670456 4602579 3b3262ec8ed5367541293e1bf1830c9d ""
-  "report.aux" 1686787757 3354 66bcb961d7adb094258c5b21ed36e605 "pdflatex"
-  "report.tex" 1686787756 16759 dd10418ddf676f6085b4bb9197a4bb8c ""
+  "report.aux" 1686788266 3214 238030765f84dbcf330c635d14cb9673 "pdflatex"
+  "report.tex" 1686788265 15938 5a5348ead66c0031b7f86f74a5ea23c1 ""
   (generated)
   "report.aux"
   "report.log"

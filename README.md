@@ -40,27 +40,27 @@ La estructura del proyecto es la siguiente:
 - `experiments.py`:  experimentos con diferentes parámetros y visualizaciones.
 - `mass_spring_system.py`:  clase que modela el sistema de masa-resorte
 - `parser.py`: procesamiento de los argumentos de la línea de comandos.
-- `plotter.py`: gráficas de los datos de las simulaciones.
+- `plotter.py`: clase que genera gráficas a partir de los datos de las simulaciones.
 - `run.py`: script principal para ejecutar una simulación.  
 - `requirements.txt`: dependencias necesarias para ejecutar el proyecto.
 
 ## Uso
 
-El script `run.py` permite ejecutar una simulación del sistema masa-resorte con los parámetros proporcionados a través de la línea de comandos. A continuación te explicamos cómo indicar estos parámetros y cómo ejecutar el script.
+Para correr una instancia de la simulación del sistema masa-resorte debes ejecutar el script `run.py` con los parámetros proporcionados a través de la línea de comandos. A continuación te explicamos cómo indicar estos parámetros y cómo ejecutar el script.
 
 ### Parámetros requeridos
 
-- `-mass`: Masa del sistema (en kg).
-- `-spring_resistance`: Resistencia del resorte (en N/m).
+- `-mass`: Masa del sistema.
+- `-spring_resistance`: Resistencia del resorte.
 - `-friction`: Coeficiente de fricción del sistema.
-- `-force`: Fuerza aplicada al sistema (en N).
+- `-force`: Fuerza aplicada al sistema.
 
 ### Parámetros opcionales
 
-- `-dt`: Intervalo de tiempo para la simulación (por defecto es 0.001 s).
-- `-t`: Tiempo total de simulación (por defecto es 100 s).
-- `-x`: Posición inicial del sistema (por defecto es 0 m).
-- `-v`: Velocidad inicial del sistema (por defecto es 0 m/s).
+- `-dt`: Intervalo de tiempo para la simulación (por defecto es 0.001).
+- `-t`: Tiempo total de simulación (por defecto es 100).
+- `-x`: Posición inicial del sistema (por defecto es 0).
+- `-v`: Velocidad inicial del sistema (por defecto es 0).
 
 Si quieres saber más sobre cada parámetro y los valores que se usan por defecto, puedes ejecutar el siguiente comando para ver la ayuda del script:
 
@@ -76,7 +76,7 @@ A continuación, se presentan algunos ejemplos de cómo podrías usar el script 
 python run.py -mass 1.0 -spring_resistance 1.0 -friction 1.0 -force 1.0
 ```
 
-Si deseas cambiar el intervalo de tiempo (paso) a 0.01 s y el tiempo total de simulación a 200 s, mientras los demás parámetros se mantienen iguales, debes usar el siguiente comando:
+Si deseas cambiar el intervalo de tiempo (paso) a 0.01 y el tiempo total de simulación a 200, mientras los demás parámetros se mantienen iguales, debes usar el siguiente comando:
 
 ```bash
 python run.py -mass 1.0 -spring_resistance 1.0 -friction 1.0 -force 1.0 -dt 0.01 -t 200
@@ -84,5 +84,5 @@ python run.py -mass 1.0 -spring_resistance 1.0 -friction 1.0 -force 1.0 -dt 0.01
 
 ## Reporte
 
-En el archivo 'report.pdf' encontrarás un análisis detallado de los experimentos más interesantes llevados a cabo durante este proyecto, junto con sus respectivas conclusiones.
+En el archivo 'report.pdf' encontrarás un análisis detallado de los experimentos más interesantes llevados a cabo durante este proyecto, junto con sus respectivas conclusiones y contrastación con soluciones analíticas.
 
